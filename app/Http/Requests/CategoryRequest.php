@@ -13,7 +13,7 @@ class CategoryRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,17 @@ class CategoryRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'name'=>'bail|required|unique:categories,name',
+            'desc'=>'required',
+        ];
+    }
+
+    public function messages()
+    {
+        return [
+            'name.required' => 'tên không được để trống',
+            'name.unique' => 'tên đã được sử dụng',
+            'desc.required' => 'mô tả không được để trống'
         ];
     }
 }

@@ -1,54 +1,38 @@
-<!-- footer start-->
-<footer class="footer">
-    <div class="container-fluid">
-      <div class="row">
-        <div class="col-md-12 footer-copyright text-center">
-          <p class="mb-0">Copyright 2020 © Cuba theme by pixelstrap  </p>
-        </div>
-      </div>
+<div class="footer-wrapper">
+    <div class="footer-section f-section-1">
+        <p class="">Copyright © 2020 <a target="_blank" href="https://designreset.com/">DesignReset</a>, All rights reserved.</p>
     </div>
-  </footer>
+    <div class="footer-section f-section-2">
+        <p class="">Coded with <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-heart"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg></p>
+    </div>
 </div>
 </div>
-<!-- latest jquery-->
-<script src="{{asset('Admin/js/jquery-3.5.1.min.js')}}"></script>
-<!-- Bootstrap js-->
-<script src="{{asset('Admin/js/bootstrap/bootstrap.bundle.min.js')}}"></script>
-<!-- feather icon js-->
-<script src="{{asset('Admin/js/icons/feather-icon/feather.min.js')}}"></script>
-<script src="{{asset('Admin/js/icons/feather-icon/feather-icon.js')}}"></script>
-<!-- scrollbar js-->
-<script src="{{asset('Admin/js/scrollbar/simplebar.js')}}"></script>
-<script src="{{asset('Admin/js/scrollbar/custom.js')}}"></script>
-<!-- Sidebar jquery-->
-<script src="{{asset('Admin/js/config.js')}}"></script>
-<!-- Plugins JS start-->
-<script src="{{asset('Admin/js/sidebar-menu.js')}}"></script>
-<script src="{{asset('Admin/js/chart/chartist/chartist.js')}}"></script>
-<script src="{{asset('Admin/js/chart/chartist/chartist-plugin-tooltip.js')}}"></script>
-<script src="{{asset('Admin/js/chart/knob/knob.min.js')}}"></script>
-<script src="{{asset('Admin/js/chart/knob/knob-chart.js')}}"></script>
-<script src="{{asset('Admin/js/chart/apex-chart/apex-chart.js')}}"></script>
-<script src="{{asset('Admin/js/chart/apex-chart/stock-prices.js')}}"></script>
-<script src="{{asset('Admin/js/notify/bootstrap-notify.min.js')}}"></script>
-<script src="{{asset('Admin/js/dashboard/default.js')}}"></script>
-<script src="{{asset('Admin/js/notify/index.js')}}"></script>
-<script src="{{asset('Admin/js/datepicker/date-picker/datepicker.js')}}"></script>
-<script src="{{asset('Admin/js/datepicker/date-picker/datepicker.en.js')}}"></script>
-<script src="{{asset('Admin/js/datepicker/date-picker/datepicker.custom.js')}}"></script>
-<script src="{{asset('Admin/js/typeahead/handlebars.js')}}"></script>
-<script src="{{asset('Admin/js/typeahead/typeahead.bundle.js')}}"></script>
-<script src="{{asset('Admin/js/typeahead/typeahead.custom.js')}}"></script>
-<script src="{{asset('Admin/js/typeahead-search/handlebars.js')}}"></script>
-<script src="{{asset('Admin/js/typeahead-search/typeahead-custom.js')}}"></script>
-<script src="{{asset('Admin/js/tooltip-init.js')}}"></script>
-<!-- Plugins JS Ends-->
-<!-- Theme js-->
-<script src="{{asset('Admin/js/script.js')}}"></script>
-{{-- <script src="{{asset('Admin/js/theme-customizer/customizer.js')}}"></script> --}}
-<!-- login js-->
-<!-- Plugin used-->
+<!--  END CONTENT AREA  -->
+
+</div>
+<!-- END MAIN CONTAINER -->
+
+<!-- BEGIN GLOBAL MANDATORY SCRIPTS -->
+<script src="{{asset('admins/assets/js/libs/jquery-3.1.1.min.js')}}"></script>
+<script src="{{asset('admins/bootstrap/js/popper.min.js')}}"></script>
+<script src="{{asset('admins/bootstrap/js/bootstrap.min.js')}}"></script>
+<script src="{{asset('admins/plugins/perfect-scrollbar/perfect-scrollbar.min.js')}}"></script>
+<script src="{{asset('admins/assets/js/app.js')}}"></script>
+<script>
+$(document).ready(function() {
+App.init();
+});
+</script>
+<script src="{{asset('admins/assets/js/custom.js')}}"></script>
+<!-- END GLOBAL MANDATORY SCRIPTS -->
+
+<!-- BEGIN PAGE LEVEL PLUGINS/CUSTOM SCRIPTS -->
+<script src="{{asset('admins/plugins/apex/apexcharts.min.js')}}"></script>
+<script src="{{asset('admins/assets/js/dashboard/dash_1.js')}}"></script>
+<!-- BEGIN PAGE LEVEL PLUGINS/CUSTOM SCRIPTS -->
+
 </body>
 
-<!-- Mirrored from Admin.pixelstrap.com/cuba/theme/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 22 Jan 2021 10:24:46 GMT -->
+<!-- Mirrored from designreset.com/cork/ltr/demo3/ by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 23 Jan 2021 13:33:59 GMT -->
+
 </html>
