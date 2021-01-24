@@ -39,9 +39,6 @@
                         <input type="submit" name="time" class="btn btn-primary" value="Submit">
                     </form>
                 </div>
-
-
             </div>
-
         </div>
 @endsection

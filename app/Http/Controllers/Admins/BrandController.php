@@ -55,4 +55,10 @@ class BrandController extends Controller
         Brand::find($id)->update($dataUpdate);
         return redirect()->route('brand.index')->with('success', 'Edit Success');
     }
+
+    public function delete($id){
+        $brand = Brand::find($id)->delete();
+        Brand::delete_image($id);
+        return redirect()->route('brand.index')->with('success','Delete Success');
+    }
 }
