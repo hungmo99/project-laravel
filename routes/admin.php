@@ -21,17 +21,44 @@ Route::prefix('admin')->group(function(){
             'as'=>'category.store',
             'uses'=>'Admins\CategoryController@store'
         ]);
-        Route::get('edit/{id}',[
+        Route::get('edits/{id}',[
             'as'=>'category.edits',
-            'uses'=>'Admins\CategoryController@edit'
+            'uses'=>'Admins\CategoryController@edits'
         ]);
         Route::post('update/{id}',[
             'as'=>'category.update',
-            'uses'=>'Admins\CategoryController@edit'
+            'uses'=>'Admins\CategoryController@update'
         ]);
         Route::get('edit/{id}',[
             'as'=>'category.delete',
             'uses'=>'Admins\CategoryController@delete'
+        ]);
+    });
+
+    Route::prefix('brand')->group(function(){
+        Route::get('',[
+            'as'=>'brand.index',
+            'uses'=>'Admins\BrandController@index'
+        ]);
+        Route::get('create',[
+            'as'=>'brand.create',
+            'uses'=>'Admins\BrandController@create'
+        ]);
+        Route::post('store',[
+            'as'=>'brand.store',
+            'uses'=>'Admins\BrandController@store'
+        ]);
+        Route::get('edits/{id}',[
+            'as'=>'brand.edits',
+            'uses'=>'Admins\BrandController@edits'
+        ]);
+        Route::post('update/{id}',[
+            'as'=>'brand.update',
+            'uses'=>'Admins\BrandController@update'
+        ]);
+        Route::get('edit/{id}',[
+            'as'=>'brand.delete',
+            'uses'=>'Admins\BrandController@delete'
         ]);
     });
 });

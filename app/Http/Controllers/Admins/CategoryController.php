@@ -28,13 +28,17 @@ class CategoryController extends Controller
            return redirect()->route('category.index')->with('success','Add Success');
        }
     }
-    public function edit($id){
+    public function edits($id){
         $cate = Category::find($id);
         return view('admins.pages.category.edit',compact('cate'));
     }
     public function update(Request $request,$id){
-        $cate = Category::find($id);
-        dd($cate);
+        $cate = Category::find($id)->update([
+            'name' => $request->name,
+            'desc' => $request->desc,
+            'status' => $request->status,
+            'slug' => Str::slug($request->name)
+        ]);
         if($cate){
             return redirect()->route('category.index')->with('success','Edit Success');
         }
