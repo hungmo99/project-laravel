@@ -9,7 +9,7 @@
             <div class="row layout-top-spacing">
                 <legend>Category</legend>
                 <div class="col-md-6">
-                    <legend>Add Category</legend>
+                    <legend>Edit Category</legend>
                     <form action="{{route('category.update',$cate->id)}}" method="POST" role="form">
                         @csrf
                         <div class="form-group">

@@ -8,11 +8,13 @@ use App\Models\Brand;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use App\Traits\UploadFile;
+use App\Traits\DeleteFile;
 use Illuminate\Support\Facades\File;
 
 class BrandController extends Controller
 {
     use UploadFile;
+    use DeleteFile;
     public function index(){
         $brand = Brand::paginate(10);
         return view('admins.pages.brand.index',compact('brand'));
@@ -58,7 +60,8 @@ class BrandController extends Controller
 
     public function delete($id){
         $brand = Brand::find($id)->delete();
-        Brand::delete_image($id);
+        // Brand::delete_image($id);
         return redirect()->route('brand.index')->with('success','Delete Success');
     }
+
 }

@@ -8,6 +8,21 @@ Route::prefix('admin')->group(function(){
         'uses'=>'Admins\AdminController@index'
     ]);
 
+    Route::get('login-admin',[
+        'as'=>'admins.login',
+        'uses'=>'Admins\AdminController@login'
+    ]);
+
+    Route::post('signin-admin',[
+        'as'=>'admins.signin',
+        'uses'=>'Admins\AdminController@signin'
+    ]);
+
+    Route::get('logout',[
+        'as'=>'admins.logout',
+        'uses'=>'Admins\AdminController@logout'
+    ]);
+
     Route::prefix('category')->group(function(){
         Route::get('',[
             'as'=>'category.index',
@@ -29,9 +44,36 @@ Route::prefix('admin')->group(function(){
             'as'=>'category.update',
             'uses'=>'Admins\CategoryController@update'
         ]);
-        Route::get('edit/{id}',[
+        Route::get('delete/{id}',[
             'as'=>'category.delete',
             'uses'=>'Admins\CategoryController@delete'
+        ]);
+    });
+
+    Route::prefix('info')->group(function(){
+        Route::get('',[
+            'as'=>'info.index',
+            'uses'=>'Admins\InfoController@index'
+        ]);
+        Route::get('create',[
+            'as'=>'info.create',
+            'uses'=>'Admins\InfoController@create'
+        ]);
+        Route::post('store',[
+            'as'=>'info.store',
+            'uses'=>'Admins\InfoController@store'
+        ]);
+        Route::get('edits/{id}',[
+            'as'=>'info.edits',
+            'uses'=>'Admins\InfoController@edits'
+        ]);
+        Route::post('update/{id}',[
+            'as'=>'info.update',
+            'uses'=>'Admins\InfoController@update'
+        ]);
+        Route::get('delete/{id}',[
+            'as'=>'info.delete',
+            'uses'=>'Admins\InfoController@delete'
         ]);
     });
 
@@ -56,9 +98,62 @@ Route::prefix('admin')->group(function(){
             'as'=>'brand.update',
             'uses'=>'Admins\BrandController@update'
         ]);
-        Route::get('edit/{id}',[
+        Route::get('delete/{id}',[
             'as'=>'brand.delete',
             'uses'=>'Admins\BrandController@delete'
+        ]);
+    });
+
+    Route::prefix('blog-cate')->group(function(){
+        Route::get('',[
+            'as'=>'blog-cate.index',
+            'uses'=>'Admins\BlogCateController@index'
+        ]);
+        Route::get('create',[
+            'as'=>'blog-cate.create',
+            'uses'=>'Admins\BlogCateController@create'
+        ]);
+        Route::post('store',[
+            'as'=>'blog-cate.store',
+            'uses'=>'Admins\BlogCateController@store'
+        ]);
+        Route::get('edits/{id}',[
+            'as'=>'blog-cate.edits',
+            'uses'=>'Admins\BlogCateController@edits'
+        ]);
+        Route::post('update/{id}',[
+            'as'=>'blog-cate.update',
+            'uses'=>'Admins\BlogCateController@update'
+        ]);
+        Route::get('delete/{id}',[
+            'as'=>'blog-cate.delete',
+            'uses'=>'Admins\BlogCateController@delete'
+        ]);
+    });
+    Route::prefix('blog')->group(function(){
+        Route::get('',[
+            'as'=>'blog.index',
+            'uses'=>'Admins\BlogController@index'
+        ]);
+        Route::get('create',[
+            'as'=>'blog.create',
+            'uses'=>'Admins\BlogController@create'
+        ]);
+        Route::post('store',[
+            'as'=>'blog.store',
+            'uses'=>'Admins\BlogController@store'
+        ]);
+        Route::get('edits/{id}',[
+            'as'=>'blog.edits',
+            'uses'=>'Admins\BlogController@edits'
+        ]);
+        Route::post('update/{id}',[
+            'as'=>'blog.update',
+            'uses'=>'Admins\BlogController@update'
+        ]);
+        Route::get('delete/{id}',[
+            'as'=>'blog.delete',
+            'uses'=>'Admins\BlogController@delete'
         ]);
     });
 });
