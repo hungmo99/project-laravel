@@ -22,7 +22,7 @@ class CreateBlogsTable extends Migration
             $table->unsignedBigInteger('id_admin');
             $table->foreign('id_admin')->references('id')->on('admins');
             $table->unsignedBigInteger('id_blogCate');
-            $table->foreign('id_blogCate')->references('id')->on('blog_cates');
+            $table->foreign('id_cate')->references('id')->on('categories');
             $table->timestamps();
         });
     }

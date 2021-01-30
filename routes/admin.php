@@ -103,33 +103,6 @@ Route::prefix('admin')->group(function(){
             'uses'=>'Admins\BrandController@delete'
         ]);
     });
-
-    Route::prefix('blog-cate')->group(function(){
-        Route::get('',[
-            'as'=>'blog-cate.index',
-            'uses'=>'Admins\BlogCateController@index'
-        ]);
-        Route::get('create',[
-            'as'=>'blog-cate.create',
-            'uses'=>'Admins\BlogCateController@create'
-        ]);
-        Route::post('store',[
-            'as'=>'blog-cate.store',
-            'uses'=>'Admins\BlogCateController@store'
-        ]);
-        Route::get('edits/{id}',[
-            'as'=>'blog-cate.edits',
-            'uses'=>'Admins\BlogCateController@edits'
-        ]);
-        Route::post('update/{id}',[
-            'as'=>'blog-cate.update',
-            'uses'=>'Admins\BlogCateController@update'
-        ]);
-        Route::get('delete/{id}',[
-            'as'=>'blog-cate.delete',
-            'uses'=>'Admins\BlogCateController@delete'
-        ]);
-    });
     Route::prefix('blog')->group(function(){
         Route::get('',[
             'as'=>'blog.index',
