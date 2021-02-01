@@ -32,16 +32,48 @@
                             <p class="text-danger">{{ $message }}</p>
                             @enderror
                         </div>
-                        <div class="radio">
-                            <label>
-                                <input type="radio" name="status" id="input" value="1" checked="checked">
-                                Show
-                            </label>
-                            <label>
-                                <input type="radio" name="status" id="input" value="0">
-                                Hidden
-                            </label>
-                        </div>
+                            <div class="col-md-11">
+                                <div class="form-group">
+                                    <label for="">Type Category</label>
+                                    <div class="radio">
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <label>
+                                                    <input type="radio" name="type" id="input" value="1" checked="checked">
+                                                    Product_Cate
+                                                </label>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <label>
+                                                    <input type="radio" name="type" id="input" value="0">
+                                                    Blog_cate
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-8">
+                                <div class="form-group">
+                                    <label for="">Status</label>
+                                    <div class="radio">
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <label>
+                                                    <input type="radio" name="status" id="input" value="1" checked="checked">
+                                                    Show
+                                                </label>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <label>
+                                                    <input type="radio" name="status" id="input" value="0">
+                                                    Hidden
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         <input type="submit" name="time" class="btn btn-primary" value="Submit">
                     </form>
                 </div>
@@ -51,10 +83,10 @@
                         <table class="table table-bordered table-hover table-striped mb-4">
                             <thead>
                                 <tr>
-                                    <th>#</th>
-                                    <th>Name</th>
-                                    <th>Desc</th>
-                                    <th>Date</th>
+                                    <th class="text-center">#</th>
+                                    <th class="text-center">Name</th>
+                                    <th class="text-center">Desc</th>
+                                    <th class="text-center">Type</th>
                                     <th class="text-center">Status</th>
                                     <th></th>
                                 </tr>
@@ -62,10 +94,10 @@
                             <tbody>
                                 @foreach($cate as $value)
                                 <tr>
-                                    <td>{{$loop->index+1}}</td>
-                                    <td>{{$value->name}}</td>
-                                    <td>{{$value->desc}}</td>
-                                    <td>{{$value->created_at}}</td>
+                                    <td class="text-center">{{$loop->index+1}}</td>
+                                    <td class="text-center">{{$value->name}}</td>
+                                    <td class="text-center">{{$value->desc}}</td>
+                                    <td class="text-center"><span class="text-success">{{$value->type==1?'Product':'Blog'}}</span></td>
                                     <td class="text-center"><span class="text-success">{{$value->status==1?'Show':'Hidden'}}</span></td>
                                     <td class="text-center">
                                         <a href="{{route('category.edits',$value->id)}}"><i class="fas fa-edit"></i></a>

@@ -14,12 +14,11 @@ class Blog extends Model
         return $this->belongsTo(Category::class,'id_cate');
     }
 
-    public static function get_admin(){
-        $admins = DB::table('blogs')
+    public static function get_blog(){
+        return DB::table('blogs')
         ->join('admins', 'blogs.id_admin', '=', 'admins.id')
-        ->join('categories', 'blogs.id', '=', 'categories.id')
-        ->select('blogs.*',  'admins.name as AdminName','categories.name','categories.type')
-        ->paginate(10);
-        return $admins;
+        ->join('categories', 'blogs.id_cate', '=', 'categories.id')
+        ->select('blogs.*', 'admins.name as adminName','categories.name as cateName')
+        ->get();
     }
 }

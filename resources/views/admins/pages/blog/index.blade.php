@@ -21,29 +21,29 @@
                         <table class="table table-bordered table-hover table-striped mb-4">
                             <thead>
                                 <tr>
-                                    <th>#</th>
-                                    <th>Image</th>
-                                    <th>Name</th>
-                                    <th>Title Description</th>
-                                    <th>Category</th>
-                                    <th>Credit</th>
+                                    <th class="text-center">#</th>
+                                    <th class="text-center">Image</th>
+                                    <th class="text-center">Name</th>
+                                    <th class="text-center">Title Description</th>
+                                    <th class="text-center">Category</th>
+                                    <th class="text-center">Credit</th>
                                     <th class="text-center">Status</th>
                                     <th></th>
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach($blog as $value)
+                                @foreach($blogs as $value)
                                 <tr>
-                                    <td>{{$loop->index+1}}</td>
-                                    <td><img src="{{asset($value->image)}}" alt="" style="width:100px"></td>
-                                    <td>{{$value->name}}</td>
-                                    <td>{{$value->title}}</td>
-                                    <td>{{$cate->name}}</td>
-                                    <td>{{$value->AdminName}}</td>
+                                    <td class="text-center">{{$loop->index+1}}</td>
+                                    <td class="text-center"><img src="{{asset($value->image)}}" alt="" style="width:100px"></td>
+                                    <td class="text-center">{{$value->name}}</td>
+                                    <td class="text-center">{{$value->title}}</td>
+                                    <td class="text-center">{{$value->cateName}}</td>
+                                    <td class="text-center">{{$value->adminName}}</td>
                                     <td class="text-center"><span class="text-success">{{$value->status==1?'Show':'Hidden'}}</span></td>
                                     <td class="text-center">
-                                        <a href="{{route('brand.edits',$value->id)}}"><i class="fas fa-edit"></i></a>
-                                        <a href="{{route('brand.delete',$value->id)}}"><i class="fas fa-trash-alt"></i></a>
+                                        <a href="{{route('blog.edits',$value->id)}}"><i class="fas fa-edit"></i></a>
+                                        <a href="{{route('blog.delete',$value->id)}}"><i class="fas fa-trash-alt"></i></a>
                                     </td>
                                 </tr>
                                 @endforeach

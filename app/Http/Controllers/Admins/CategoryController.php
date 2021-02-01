@@ -23,6 +23,7 @@ class CategoryController extends Controller
             'name' => $request->name,
             'desc' => $request->desc,
             'status' => $request->status,
+            'type' => $request->type,
             'slug' => Str::slug($request->name,'-')
         ]);
        if($cate){
@@ -38,6 +39,7 @@ class CategoryController extends Controller
             'name' => $request->name,
             'desc' => $request->desc,
             'status' => $request->status,
+            'type' => $request->type,
             'slug' => Str::slug($request->name)
         ]);
         if($cate){

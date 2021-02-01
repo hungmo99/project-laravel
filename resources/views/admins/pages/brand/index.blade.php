@@ -50,9 +50,9 @@
                         <table class="table table-bordered table-hover table-striped mb-4">
                             <thead>
                                 <tr>
-                                    <th>#</th>
-                                    <th>Image</th>
-                                    <th>Name</th>
+                                    <th class="text-center">#</th>
+                                    <th class="text-center">Image</th>
+                                    <th class="text-center">Name</th>
                                     <th class="text-center">Status</th>
                                     <th></th>
                                 </tr>
@@ -60,9 +60,9 @@
                             <tbody>
                                 @foreach($brand as $value)
                                 <tr>
-                                    <td>{{$loop->index+1}}</td>
-                                    <td><img src="{{asset($value->image)}}" alt="" style="width:100px"></td>
-                                    <td>{{$value->name}}</td>
+                                    <td class="text-center">{{$loop->index+1}}</td>
+                                    <td class="text-center"><img src="{{asset($value->image)}}" alt="" style="width:100px"></td>
+                                    <td class="text-center">{{$value->name}}</td>
                                     <td class="text-center"><span class="text-success">{{$value->status==1?'Show':'Hidden'}}</span></td>
                                     <td class="text-center">
                                         <a href="{{route('brand.edits',$value->id)}}"><i class="fas fa-edit"></i></a>
