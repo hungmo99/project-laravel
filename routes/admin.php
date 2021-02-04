@@ -103,6 +103,7 @@ Route::prefix('admin')->group(function(){
             'uses'=>'Admins\BrandController@delete'
         ]);
     });
+
     Route::prefix('blog')->group(function(){
         Route::get('',[
             'as'=>'blog.index',
@@ -127,6 +128,33 @@ Route::prefix('admin')->group(function(){
         Route::get('delete/{id}',[
             'as'=>'blog.delete',
             'uses'=>'Admins\BlogController@delete'
+        ]);
+    });
+
+    Route::prefix('banner')->group(function(){
+        Route::get('',[
+            'as'=>'banner.index',
+            'uses'=>'Admins\BannerController@index'
+        ]);
+        Route::get('create',[
+            'as'=>'banner.create',
+            'uses'=>'Admins\BannerController@create'
+        ]);
+        Route::post('store',[
+            'as'=>'banner.store',
+            'uses'=>'Admins\BannerController@store'
+        ]);
+        Route::get('edits/{id}',[
+            'as'=>'banner.edits',
+            'uses'=>'Admins\BannerController@edits'
+        ]);
+        Route::post('update/{id}',[
+            'as'=>'banner.update',
+            'uses'=>'Admins\BannerController@update'
+        ]);
+        Route::get('delete/{id}',[
+            'as'=>'banner.delete',
+            'uses'=>'Admins\BannerController@delete'
         ]);
     });
 });
