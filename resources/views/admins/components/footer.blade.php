@@ -18,6 +18,16 @@
 <script src="{{asset('admins/bootstrap/js/bootstrap.min.js')}}"></script>
 <script src="{{asset('admins/plugins/perfect-scrollbar/perfect-scrollbar.min.js')}}"></script>
 <script src="{{asset('admins/assets/js/app.js')}}"></script>
+<script src="http://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+<script>
+     $("#id_attr").change(function(event) {
+            var sku_detail = $('#sku').text();
+            var id_attr = $('#id_attr option:selected').text();
+            var sku_done = sku_detail + id_attr;
+            console.log(sku_detail, id_attr);
+            $('#sku_detail').val(sku_done);
+        });
+</script>
 <script>
 $(document).ready(function() {
 App.init();
