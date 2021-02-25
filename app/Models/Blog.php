@@ -19,6 +19,9 @@ class Blog extends Model
         ->join('admins', 'blogs.id_admin', '=', 'admins.id')
         ->join('categories', 'blogs.id_cate', '=', 'categories.id')
         ->select('blogs.*', 'admins.name as adminName','categories.name as cateName')
-        ->get();
+        ->paginate(1);
     }
+    public function admins(){
+        return $this->belongsTo(Admin::class, 'id_admin', 'id');
+   }
 }

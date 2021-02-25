@@ -1,3 +1,4 @@
+@section('page','ACCOUNT')
 <!doctype html>
 <html class="no-js" lang="">
 
@@ -38,6 +39,9 @@
 
         <script src="{{asset('clients/js/vendor/modernizr-2.8.3.min.js')}}"></script>
         <style>
+            .ok1 li a:hover{
+                color:white !important;
+            }
             .nav1 {
                 width: 100%;
                 margin: 0;
@@ -60,48 +64,19 @@
             .ok.fa.fa-heart:hover,.ok.fa-shopping-cart:hover,.ok.fa-search:hover{
                 color: #7d2505 !important;
             }
+            .size li:hover,a:hover{
+                background-color: #f25c27;
+                color:aliceblue;
+            }
+            .contact-item{
+                height: 190px;
+            }
         </style>
     </head>
     <body>
         <!--[if lt IE 8]>
             <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
-
-		<!-- color-switcher-start -->
-		<div id="style-switcher">
-			<h2>Style Switcher<a href="#"><i class="fa fa-cog"></i></a></h2>
-			<h3>Demo Color</h3>
-			<div>
-				<ul class="colors" id="color1">
-					<li>
-						<a href="#" class="style-1"></a>
-					</li>
-					<li>
-						<a href="#" class="style-2"></a>
-					</li>
-					<li>
-						<a href="#" class="style-3"></a>
-					</li>
-					<li>
-						<a href="#" class="style-4"></a>
-					</li>
-				</ul>
-			</div>
-		</div>
-		<!-- color-switcher-end -->
-
-		<!--start preloader area-->
-        <div class="loader-container circle-pulse-multiple">
-			<div class="loader">
-				<div id="loading-center-absolute">
-                    <div class="object" id="object_four"></div>
-                    <div class="object" id="object_three"></div>
-                    <div class="object" id="object_two"></div>
-                    <div class="object" id="object_one"></div>
-                </div>
-			</div>
-		</div>
-       <!--End preloader area-->
 
 		<div class="overlay-bg"></div>
 		<header class="home2-header-area">
@@ -110,8 +85,8 @@
 					<div class="row">
 						<div class="col-md-8 col-lg-7 col-sm-9 col-xs-12">
 							<div class="profile-wrap">
-								<ul>
-                                    @if(session()->has('customer'))
+								<ul class="ok1">
+									@if(session()->has('customer'))
 									<li><a href="{{route('client.account')}}"><i class="fa fa-user"></i>My Account</a></li>
 									<li><a href="checkout.html"><i class="fa fa-key"> </i> CheckOut</a></li>
 									<li><a href="cart.html"><i class="fa fa-shopping-cart"></i>Shoping Cart</a></li>
@@ -150,7 +125,7 @@
 						<div class="col-md-7 hidden-sm hidden-xs">
 							<div class="mainmenu">
 								<ul id="navigation" class="nav1">
-									<li class="active"><a href="{{route('client.index')}}">Home</a></li>
+									<li><a href="{{route('client.index')}}">Home</a></li>
 									<li><a href="Shop.html">Cart</i></a></li>
 									<li><a href="blog.html">Blog</i></a></li>
 									<li><a href="#">About us</a></li>
@@ -206,132 +181,104 @@
 		</header>
 		<!-- header-end -->
 
-		<!-- slider-area start -->
-		<div class="slider-area">
-			<div class="slider-active">
-				<div class="single-slider">
-					<img src="{{asset('clients/img/slider/2.jpg')}}" alt="" />
-					<div class="slider-content text-center">
-						<div class="table">
-							<div class="table-cell">
-								<div class="container">
-									<div class="row">
-										<div class="col-md-8 col-md-offset-2 col-xs-12">
-											<h2>Welcome To <span>EcomoShop</span></h2>
-											<h3>60% off</h3>
-											<p>Duo harum ornatus ponderum an, at ius zril menandri praesent. Bonorum tacimates interesset has ei, pro ignota prodesset at. Vel ea velit percipitur.</p>
-											<a href="#">Shop Now</a>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="single-slider">
-					<img src="{{asset('clients/img/slider/3.jpg')}}" alt="" />
-					<div class="slider-content text-right">
-						<div class="table">
-							<div class="table-cell">
-								<div class="container">
-									<div class="row">
-										<div class="col-lg-8 col-lg-offset-4 col-md-8 col-md-offset-3 col-xs-12">
-											<h2>Welcome To <span>EcomoShop</span></h2>
-											<h3>35% off</h3>
-											<p>Duo harum ornatus ponderum an, at ius zril menandri praesent. Bonorum tacimates interesset has ei, pro ignota prodesset at. Vel ea velit percipitur.</p>
-											<a href="#">Shop Now</a>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="single-slider">
-					<img src="{{asset('clients/img/slider/1.jpg')}}" alt="" />
-					<div class="slider-content">
-						<div class="table">
-							<div class="table-cell">
-								<div class="container">
-									<div class="row">
-										<div class="col-md-8 col-md-offset-1 col-lg-8 col-xs-12">
-											<h2>Welcome To <span>EcomoShop</span></h2>
-											<h3>20% off</h3>
-											<p>Duo harum ornatus ponderum an, at ius zril menandri praesent. Bonorum tacimates interesset has ei, pro ignota prodesset at. Vel ea velit percipitur.</p>
-											<a href="#">Shop Now</a>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-		<!-- slider-area end -->
 
-		<!-- banner-area start -->
-		<div class="speacial-banner-area ptb-100">
-			<div class="container-fluid">
-				<div class="row">
-					<div class="col-md-4">
-						<div class="banner-wrap">
-							<div class="banner-img">
-								<img src="{{asset('clients/img/icon/1.png')}}" alt="" />
-							</div>
-							<div class="banner-content">
-								<h2>35% Off This product</h2>
-							</div>
-							<div class="content">
-								<p>Maecenas semper aliquam massa pharetra sem vitae nisi eleif molestie Maecenas semper aliquam massa pharetra.</p>
-							</div>
-						</div>
-					</div>
-					<div class="col-md-4">
-						<div class="banner-wrap active">
-							<div class="banner-img">
-								<img src="{{asset('clients/img/icon/2.png')}}" alt="" />
-							</div>
-							<div class="banner-content">
-								<h2>60% Off This product</h2>
-							</div>
-							<div class="content">
-								<p>Maecenas semper aliquam massa pharetra sem vitae nisi eleif molestie Maecenas semper aliquam massa pharetra.</p>
-							</div>
-						</div>
-					</div>
-					<div class="col-md-4">
-						<div class="banner-wrap clear">
-							<div class="banner-img">
-								<img src="{{asset('clients/img/icon/3.png')}}" alt="" />
-							</div>
-							<div class="banner-content">
-								<h2>40% Off This product</h2>
-							</div>
-							<div class="content">
-								<p>Maecenas semper aliquam massa pharetra sem vitae nisi eleif molestie Maecenas semper aliquam massa pharetra.</p>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-		<!-- banner-area end -->
-        <!-- banner-area start -->
-		<div class="banner-area ptb-100 mtb-100 bg-4" style="margin: 0; padding:0;">
-			<div class="container">
-				<div class="row">
-					<div class="col-md-6 col-sm-6">
-						<div class="banner-img">
-							<a href="#"><img src="{{asset('clients/img/banner/1.jpg')}}" alt="" /></a>
-						</div>
-					</div>
-					<div class="col-md-6 col-sm-6">
-						<div class="banner-img">
-							<a href="#"><img src="{{asset('clients/img/banner/2.jpg')}}" alt="" /></a>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-		<!-- banner-area end -->
+    <!-- .breadcumb-area start -->
+    <div class="bradcumb-area black-opacity bg-img-3">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="bradcumb-wrap">
+                        <h2>@yield('page')</h2>
+                        <ul>
+                            <li><a href="index.html">Home</a></li>
+                            <li>|</li>
+                            <li>@yield('page')</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- .breadcumb-area end -->
+<div class="checkout-area ptb-100 bg-4">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12">
+                <h3 class="cart-title">Account</h3>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="checkout-form-wrap mb-20">
+                    <h3 class="checkout-title">Account Information</h3>
+                    <div class="checkout-form">
+                        <div class="row">
+                            <form action="{{route('client.account_update',$client->id)}}" method="POST">
+                                @csrf
+                                <div class="col-md-6">
+                                    <p>name<span>*</span></p>
+                                    <input type="text" name="name" value="{{$client->name}}"/>
+                                </div>
+                                <div class="col-xs-12">
+                                    <p>Email</p>
+                                    <input type="email" name="email" value="{{$client->email}}"/>
+                                </div>
+                                {{-- @dd($client); --}}
+                                <div class="col-md-6">
+                                    <p>Phone <span>*</span></p>
+                                    <input type="text" name="phone" value="{{$client->phone}}"/>
+                                </div>
+                                <div class="col-md-6">
+                                    <p>Address <span>*</span></p>
+                                    <input type="Address" name="address" value="{{$client->address}}"/>
+                                </div>
+                                <div class="col-xs-12">
+                                    <button type="submit" class="btn btn-success">Save Changes</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="checkout-form-wrap mb-20">
+                    <h3 class="checkout-title">Change Pasword</h3>
+                    <div class="checkout-form">
+                        <div class="row">
+                            <form action="{{route('client.password_update')}}" method="POST">
+                            @csrf
+                            <div class="col-md-6">
+                                <p>Current Password<span>*</span></p>
+                                <input type="password" name="password" />
+                            </div>
+                            <div class="col-md-6">
+                                <p>New Password <span>*</span></p>
+                                <input type="password" name="newPassword" />
+                            </div>
+                            <div class="col-md-6">
+                                <p>Confirm Password <span>*</span></p>
+                                <input type="password" name="confirm" />
+                            </div>
+                            <div class="col-md-6">
+                            @if (session()->has('err_password'))
+                                <p class="text-danger">{{session('err_password')}}</p>
+                            @endif
+                            @if (session()->has('err_confirm'))
+                                <p class="text-danger">{{session('err_confirm')}}</p>
+                            @endif
+                            </div>
+                            <button type="submit" class="btn btn-warning" onclick="return confirm('Are you sure')" >Save</button>
+                        </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@if (session()->has('success'))
+    <script>
+        alert('Change Success');
+    </script>
+@endif
+@include('clients.components.footer')

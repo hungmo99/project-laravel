@@ -9,7 +9,9 @@
                         <h3 class="sidebar-title">categorie <i class="fa fa-cube pull-right"></i></h3>
                         <div class="categorie-menu p-20">
                             <ul>
-                                <li><a href="#">Woman Product</a></li>
+                                @foreach($cate_pro as $value)
+                                <li><a href="{{route('client.category',$value->slug)}}">{{$value->name}}</a></li>
+                                @endforeach
                             </ul>
                         </div>
                     </div>
@@ -43,19 +45,16 @@
             <div class="col-lg-9 col-md-8 col-xs-12">
                 <div class="row mb-40">
                     <div class="col-md-5 col-lg-6 col-sm-6 col-xs-12">
-                        <h3 class="shop-title">Showing 1-12 of 64 results</h3>
+                        <h3 class="shop-title">Showing {{ $products->firstItem() }} to {{ $products->lastItem() }} of {{ $products->total() }} ({{ $products->lastPage() }} pages</h3>
                     </div>
                     <div class="col-md-7 col-lg-6 col-sm-6 col-xs-12">
-                        <div class="shop-select-form">
-                            <select>
-                                <option value="Select Cetagory">Select Cetagory</option>
-                                <option value="Web Design">Web Design</option>
-                                <option value="Web Development">Web Development</option>
-                                <option value="Frontend Developer">Frontend Developer</option>
-                                <option value="Backend Developer">Web Design</option>
-                                <option value="UX/UI Designer">Web Design</option>
-                            </select>
-                        </div>
+                        {{-- <div class="shop-short-by ml-30">
+                            <ul>
+                                <li><a href="{{route('client.sort_date')}}">Sort by date</a></li>
+                                <li><a href="{{route('client.sort_low')}}">Sort by price: low to high</a></li>
+                                <li><a href="{{route('client.sort_high')}}">Sort by price: high to low</a></li>
+                            </ul>
+                        </div> --}}
                         <div class="shop-menu">
                             <ul>
                                 <li class="active"><a href="#grid" data-toggle="tab"><i class="fa fa-th"></i></a></li>

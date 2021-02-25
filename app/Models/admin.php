@@ -13,4 +13,7 @@ class admin extends Model
     public static function get_email($email){
         return DB::table('admins')->where('email',$email)->first();
     }
+    public function blogs(){
+    	return $this->hasMany(Blog::class, 'id_admin', 'id');
+    }
 }

@@ -254,6 +254,7 @@
 <script src="{{asset('clients/js/wow.min.js')}}"></script>
 <!-- main.js -->
 <script src="{{asset('clients/js/main.js')}}"></script>
+<script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
 </body>
 
 <!-- Mirrored from irsfoundation.com/tf/ecommerce/ecomoshop/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 24 Nov 2020 08:35:29 GMT -->

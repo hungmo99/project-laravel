@@ -1,3 +1,4 @@
+@section('page','LOGIN')
 <!doctype html>
 <html class="no-js" lang="">
 
@@ -38,6 +39,9 @@
 
         <script src="{{asset('clients/js/vendor/modernizr-2.8.3.min.js')}}"></script>
         <style>
+            .ok1 li a:hover{
+                color:white !important;
+            }
             .nav1 {
                 width: 100%;
                 margin: 0;
@@ -60,48 +64,19 @@
             .ok.fa.fa-heart:hover,.ok.fa-shopping-cart:hover,.ok.fa-search:hover{
                 color: #7d2505 !important;
             }
+            .size li:hover,a:hover{
+                background-color: #f25c27;
+                color:aliceblue;
+            }
+            .contact-item{
+                height: 190px;
+            }
         </style>
     </head>
     <body>
         <!--[if lt IE 8]>
             <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
-
-		<!-- color-switcher-start -->
-		<div id="style-switcher">
-			<h2>Style Switcher<a href="#"><i class="fa fa-cog"></i></a></h2>
-			<h3>Demo Color</h3>
-			<div>
-				<ul class="colors" id="color1">
-					<li>
-						<a href="#" class="style-1"></a>
-					</li>
-					<li>
-						<a href="#" class="style-2"></a>
-					</li>
-					<li>
-						<a href="#" class="style-3"></a>
-					</li>
-					<li>
-						<a href="#" class="style-4"></a>
-					</li>
-				</ul>
-			</div>
-		</div>
-		<!-- color-switcher-end -->
-
-		<!--start preloader area-->
-        <div class="loader-container circle-pulse-multiple">
-			<div class="loader">
-				<div id="loading-center-absolute">
-                    <div class="object" id="object_four"></div>
-                    <div class="object" id="object_three"></div>
-                    <div class="object" id="object_two"></div>
-                    <div class="object" id="object_one"></div>
-                </div>
-			</div>
-		</div>
-       <!--End preloader area-->
 
 		<div class="overlay-bg"></div>
 		<header class="home2-header-area">
@@ -110,8 +85,8 @@
 					<div class="row">
 						<div class="col-md-8 col-lg-7 col-sm-9 col-xs-12">
 							<div class="profile-wrap">
-								<ul>
-                                    @if(session()->has('customer'))
+								<ul class="ok1">
+									@if(session()->has('customer'))
 									<li><a href="{{route('client.account')}}"><i class="fa fa-user"></i>My Account</a></li>
 									<li><a href="checkout.html"><i class="fa fa-key"> </i> CheckOut</a></li>
 									<li><a href="cart.html"><i class="fa fa-shopping-cart"></i>Shoping Cart</a></li>
@@ -150,11 +125,11 @@
 						<div class="col-md-7 hidden-sm hidden-xs">
 							<div class="mainmenu">
 								<ul id="navigation" class="nav1">
-									<li class="active"><a href="{{route('client.index')}}">Home</a></li>
+									<li><a href="index.html">Home</a></li>
 									<li><a href="Shop.html">Cart</i></a></li>
 									<li><a href="blog.html">Blog</i></a></li>
 									<li><a href="#">About us</a></li>
-									<li><a href="{{route('client.contact')}}">Contact</a></li>
+									<li><a href="contact.html">Contact</a></li>
 								</ul>
 							</div>
 						</div>
@@ -206,132 +181,77 @@
 		</header>
 		<!-- header-end -->
 
-		<!-- slider-area start -->
-		<div class="slider-area">
-			<div class="slider-active">
-				<div class="single-slider">
-					<img src="{{asset('clients/img/slider/2.jpg')}}" alt="" />
-					<div class="slider-content text-center">
-						<div class="table">
-							<div class="table-cell">
-								<div class="container">
-									<div class="row">
-										<div class="col-md-8 col-md-offset-2 col-xs-12">
-											<h2>Welcome To <span>EcomoShop</span></h2>
-											<h3>60% off</h3>
-											<p>Duo harum ornatus ponderum an, at ius zril menandri praesent. Bonorum tacimates interesset has ei, pro ignota prodesset at. Vel ea velit percipitur.</p>
-											<a href="#">Shop Now</a>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="single-slider">
-					<img src="{{asset('clients/img/slider/3.jpg')}}" alt="" />
-					<div class="slider-content text-right">
-						<div class="table">
-							<div class="table-cell">
-								<div class="container">
-									<div class="row">
-										<div class="col-lg-8 col-lg-offset-4 col-md-8 col-md-offset-3 col-xs-12">
-											<h2>Welcome To <span>EcomoShop</span></h2>
-											<h3>35% off</h3>
-											<p>Duo harum ornatus ponderum an, at ius zril menandri praesent. Bonorum tacimates interesset has ei, pro ignota prodesset at. Vel ea velit percipitur.</p>
-											<a href="#">Shop Now</a>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="single-slider">
-					<img src="{{asset('clients/img/slider/1.jpg')}}" alt="" />
-					<div class="slider-content">
-						<div class="table">
-							<div class="table-cell">
-								<div class="container">
-									<div class="row">
-										<div class="col-md-8 col-md-offset-1 col-lg-8 col-xs-12">
-											<h2>Welcome To <span>EcomoShop</span></h2>
-											<h3>20% off</h3>
-											<p>Duo harum ornatus ponderum an, at ius zril menandri praesent. Bonorum tacimates interesset has ei, pro ignota prodesset at. Vel ea velit percipitur.</p>
-											<a href="#">Shop Now</a>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-		<!-- slider-area end -->
 
-		<!-- banner-area start -->
-		<div class="speacial-banner-area ptb-100">
-			<div class="container-fluid">
-				<div class="row">
-					<div class="col-md-4">
-						<div class="banner-wrap">
-							<div class="banner-img">
-								<img src="{{asset('clients/img/icon/1.png')}}" alt="" />
-							</div>
-							<div class="banner-content">
-								<h2>35% Off This product</h2>
-							</div>
-							<div class="content">
-								<p>Maecenas semper aliquam massa pharetra sem vitae nisi eleif molestie Maecenas semper aliquam massa pharetra.</p>
-							</div>
-						</div>
-					</div>
-					<div class="col-md-4">
-						<div class="banner-wrap active">
-							<div class="banner-img">
-								<img src="{{asset('clients/img/icon/2.png')}}" alt="" />
-							</div>
-							<div class="banner-content">
-								<h2>60% Off This product</h2>
-							</div>
-							<div class="content">
-								<p>Maecenas semper aliquam massa pharetra sem vitae nisi eleif molestie Maecenas semper aliquam massa pharetra.</p>
-							</div>
-						</div>
-					</div>
-					<div class="col-md-4">
-						<div class="banner-wrap clear">
-							<div class="banner-img">
-								<img src="{{asset('clients/img/icon/3.png')}}" alt="" />
-							</div>
-							<div class="banner-content">
-								<h2>40% Off This product</h2>
-							</div>
-							<div class="content">
-								<p>Maecenas semper aliquam massa pharetra sem vitae nisi eleif molestie Maecenas semper aliquam massa pharetra.</p>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-		<!-- banner-area end -->
-        <!-- banner-area start -->
-		<div class="banner-area ptb-100 mtb-100 bg-4" style="margin: 0; padding:0;">
+    <!-- .breadcumb-area start -->
+    <div class="bradcumb-area black-opacity bg-img-3">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="bradcumb-wrap">
+                        <h2>@yield('page')</h2>
+                        <ul>
+                            <li><a href="index.html">Home</a></li>
+                            <li>|</li>
+                            <li>@yield('page')</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- .breadcumb-area end -->
+
+		<!-- login-area start -->
+		<div class="login-area ptb-100 bg-4">
 			<div class="container">
 				<div class="row">
-					<div class="col-md-6 col-sm-6">
-						<div class="banner-img">
-							<a href="#"><img src="{{asset('clients/img/banner/1.jpg')}}" alt="" /></a>
+					<div class="col-md-6">
+						<div class="login-wrap sm-mb-50">
+							<div class="form-style">
+                                @if (isset($demo))
+                                <p class="text-danger">Please login before using</p>
+                                @endif
+								<form action="{{route('client.signin')}}" method="POST">
+                                    @csrf
+									<p>Email</p>
+									<input type="email" placeholder="email" name="email"/>
+									<p>Password</p>
+									<input type="password" name="password" placeholder="password"/>
+									<button type="submit">Login</button>
+								</form>
+							</div>
 						</div>
 					</div>
-					<div class="col-md-6 col-sm-6">
-						<div class="banner-img">
-							<a href="#"><img src="{{asset('clients/img/banner/2.jpg')}}" alt="" /></a>
+					<div class="col-md-6">
+						<div class="login-wrap">
+							<div class="form-style">
+								<form action="{{route('client.register')}}">
+									<p>Name</p>
+									<input type="text" name="name" placeholder="Name"/>
+									<p>Email</p>
+									<input type="email" name="email" placeholder="email"/>
+                                    @if (session()->has('err_email'))
+                                        <p class="text-danger">{{session('err_email')}}</p>
+                                    @endif
+									<p>Password</p>
+									<input type="password" name="password" placeholder="Password"/>
+									<p>Confirm Password</p>
+									<input type="password" name="confirm_password" placeholder="Confirm Password"/>
+                                    @if (session()->has('err_password'))
+                                    <p class="text-danger">{{session('err_password')}}</p>
+                                    @endif
+									<p>Phone</p>
+									<input type="text" name="phone" placeholder="Phone"/>
+									<p>Address</p>
+									<input type="text" name="address" placeholder="Address"/>
+									<button>Register Now</button>
+								</form>
+							</div>
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
-		<!-- banner-area end -->
+		<!-- login-area end -->
+
+   @include('clients.components.footer')

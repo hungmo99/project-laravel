@@ -92,7 +92,7 @@ class ProductController extends Controller
 
 
         if ($request->hasFile('image')) {
-            img_pro::where('id_pro',$id)->delete();
+            img_pro::where('id_product',$id)->delete();
             foreach ($request->image as $value) {
                 $UploadMuiple = $this->uploadImageMutiple($value, 'product');
                 img_pro::create([
