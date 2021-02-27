@@ -5,6 +5,7 @@ namespace App\Providers;
 use App\Models\Brand;
 use App\Models\Category;
 use App\Models\information;
+use App\Models\Wishlist;
 use Illuminate\Pagination\Paginator;
 use Illuminate\Support\ServiceProvider;
 

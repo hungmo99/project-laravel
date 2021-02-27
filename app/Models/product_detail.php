@@ -17,10 +17,10 @@ class product_detail extends Model
 	{
 		return $this->belongsTo(product::class, 'id_product','id');
 	}
-	// public function wishlists()
-	// {
-	// 	return $this->hasMany(Wishlist::class, 'id_product_detail', 'id');
-	// }
+	public function wishlists()
+	{
+		return $this->hasMany(Wishlist::class, 'id_product_detail', 'id');
+	}
 	// public function order_details()
 	// {
 	// 	return $this->hasMany(Order_detail::class, 'id_pro_detail', 'id');

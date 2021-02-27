@@ -35,7 +35,7 @@ Route::prefix('client')->group(function(){
         'as'=>'client.contact',
         'uses'=> 'Clients\ContactController@index'
     ]);
-    Route::post('contact_post',[
+    Route::post('contact-post',[
         'as'=>'client.contact_post',
         'uses'=> 'Clients\ContactController@post_contact'
     ]);
@@ -63,7 +63,7 @@ Route::prefix('client')->group(function(){
         'as'=>'client.account_update',
         'uses'=>'clients\ClientController@account_update'
     ]);
-    Route::post('password_update',[
+    Route::post('password-update',[
         'as'=>'client.password_update',
         'uses'=>'clients\ClientController@password_update'
     ]);
@@ -85,6 +85,14 @@ Route::prefix('client')->group(function(){
         Route::get('',[
             'as'=>'wishlist.index',
             'uses'=>'clients\WishlistController@index'
+        ]);
+        Route::get('add-wishlist/{id}',[
+            'as'=>'wishlist.add',
+            'uses'=>'clients\WishlistController@add'
+        ]);
+        Route::get('remove-wishlist/{id}',[
+            'as'=>'wishlist.delete',
+            'uses'=>'clients\WishlistController@delete'
         ]);
     });
 });

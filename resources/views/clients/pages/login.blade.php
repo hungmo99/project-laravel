@@ -208,7 +208,7 @@
 					<div class="col-md-6">
 						<div class="login-wrap sm-mb-50">
 							<div class="form-style">
-                                @if (isset($demo))
+                                @if (isset($check))
                                 <p class="text-danger">Please login before using</p>
                                 @endif
 								<form action="{{route('client.signin')}}" method="POST">

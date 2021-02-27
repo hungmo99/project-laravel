@@ -5,8 +5,8 @@
         <div class="tab-content">
             <div class="tab-pane active" id="grid">
                 <div class="row">
-                    {{-- @dd($products) --}}
                     @foreach($products as $product)
+                    {{-- @dd($products) --}}
                     <div class="col-xs-12 col-lg-4 col-md-6 col-sm-6">
                         <div class="product-wrap mb-30">
                             <div class="product-img">
@@ -24,10 +24,19 @@
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="wishlist.html">
+                                            @if($client==null || $val->product_details->products->id==$product->id)
+                                            {{-- @if(($val->product_details->products->id==$product->id)) --}}
+                                            {{-- @dd($product->id) --}}
+                                            {{-- <a href="{{route('wishlist.delete',$product->id)}}">
                                                 <i class="fa fa-heart"></i>
-                                                <span>Wishlist</span>
+                                                <span>Remove Wishlist</span>
+                                            </a> --}}
+                                            @else
+                                            <a href="{{route('wishlist.add',$product->id_detail)}}">
+                                                <i class="fa fa-heart"></i>
+                                                <span>Add Wishlist</span>
                                             </a>
+                                            @endif
                                         </li>
                                         <li>
                                             <a href="checkout.html">
