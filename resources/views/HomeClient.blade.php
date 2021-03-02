@@ -18,7 +18,7 @@
                                 <div class="product-icon">
                                     <ul>
                                         <li>
-                                            <a href="cart.html">
+                                            <a href="{{route('cart.add',$product->id_detail)}}">
                                                 <i class="fa fa-shopping-cart"></i>
                                                 <span>Add to Cart</span>
                                             </a>
@@ -37,12 +37,6 @@
                                                 <span>Add Wishlist</span>
                                             </a>
                                             @endif
-                                        </li>
-                                        <li>
-                                            <a href="checkout.html">
-                                                <i class="fa fa-compress"></i>
-                                                <span>Compare</span>
-                                            </a>
                                         </li>
                                     </ul>
                                 </div>

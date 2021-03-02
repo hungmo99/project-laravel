@@ -304,9 +304,13 @@
                         <span>{{number_format($product_detail_id->price)}} đ</span>
                         @endif
                         <div class="quality-wrap">
-                            <strong>QTY :</strong>
-                            <input type="number" min="0" name="QTY" />
-                            <a href="#"><i class="fa fa-shopping-cart"></i> Add to cart</a>
+                            <form action="{{route('cart.update-qty')}}" method="POST">
+                                @csrf
+                                <input type="hidden" name="id" value="{{$product_detail_id->id}}">
+                                <strong>QTY :</strong>
+                                <input class="quantity" type="number" name="quantity" value="1"/>
+                                <button class="add-cart" type="submit"><i class="fa fa-shopping-cart"></i> Add to cart</button>
+                            </form>
                         </div>
                         <div class="share-wrap">
                             <ul>
@@ -340,6 +344,7 @@
                                 <h3>{{$count_star}} Reviews From Customers</h3>
                                 <ul>
                                     @foreach($feedback_pro as $feedback)
+                                    {{-- @dd($feedback_pro) --}}
                                     <li>
                                         <div class="review-info">
                                             <a href="#">{{$feedback->users->name}}</a>
@@ -352,10 +357,11 @@
                             <div class="add-review">
                                 <h3>Add A Review</h3>
                                 <form action="{{route('client.feedback',$product->id)}}" method="POST">
+                                    @csrf
                                     <div class="row">
                                         <div class="col-xs-12">
                                             <h4>Your Review:</h4>
-                                            <textarea name="massage" id="massage" cols="30" rows="10" placeholder="Your review here..."></textarea>
+                                            <textarea name="content" id="massage" cols="30" rows="10" placeholder="Your review here..."></textarea>
                                         </div>
                                         <div class="col-xs-12">
                                             <button class="btn-style" type="submit">Submit</button>
@@ -429,4 +435,17 @@
     </div>
     <!-- product-details-area end -->
 
-   @include('clients.components.footer')
+    @include('clients.components.footer')
+    <script>
+        $(function(){
+        $('.quantity').on('change',function(){
+            quantity = $(this).val();
+            // alert(quantity);
+            if(quantity < 1){
+                $(this).val(1);
+            }else if(quantity>{{$product_detail_id->quantity}}){
+                $(this).val({{$product_detail_id->quantity}})
+            }
+        })
+    });
+    </script>

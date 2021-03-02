@@ -18,17 +18,10 @@ class ProductDetailController extends Controller
 		$product_detail=product_detail::where('id_product','=',$product->id)->get();
 		$img_pro=img_pro::where('id_product','=',$product->id)->get();
 		$product_detail_id=product_detail::find($id_detail);
-		$feedback_pro=feedback_pro::where([['id_product','=',$product->id],['status','=',1]])->orderby('created_at','desc')->get();
-		$one=0;
-		$two=0;
-		$three=0;
-		$four=0;
-		$five=0;
-		$star=ceil($feedback_pro->avg('star'));
-		$count_star=$feedback_pro->count();
-		// dd($feedback_pro->count());
+		$feedback_pro=feedback_pro::where('id_product',$product->id)->orderby('created_at','desc')->get();
 		$product_news=product::where([['status','=','1']])->orderby('created_at','desc')->limit(3)->get();
 		// dd($product_news);
+        $count_star=$feedback_pro->count();
 		foreach ($product_news as $key=> $item) {
 			$details = isset($item->product_details)?$item->product_details:[];
 			if (isset($details[0])){
@@ -44,9 +37,6 @@ class ProductDetailController extends Controller
 				$item->setAttribute('quantity', '0');
 			}
 		}
-		return view('clients.pages.product_detail',compact(
-			'product','product_news','product_detail','product_detail_id','img_pro','attr','feedback_pro',
-			'one','two','three','four','five','star','count_star'
-		));
+		return view('clients.pages.product_detail',compact('product','product_news','product_detail','product_detail_id','img_pro','attr','feedback_pro','count_star'));
     }
 }

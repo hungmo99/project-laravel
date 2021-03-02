@@ -1,4 +1,4 @@
-@section('page','BLOG')
+@section('page','CHECKOUT')
 <!doctype html>
 <html class="no-js" lang="">
 
@@ -125,11 +125,11 @@
 						<div class="col-md-7 hidden-sm hidden-xs">
 							<div class="mainmenu">
 								<ul id="navigation" class="nav1">
-									<li><a href="{{route('client.index')}}">Home</a></li>
+									<li><a href="index.html">Home</a></li>
 									<li><a href="Shop.html">Cart</i></a></li>
-									<li class="active"><a href="{{route('blog.index')}}">Blog</i></a></li>
+									<li><a href="blog.html">Blog</i></a></li>
 									<li><a href="#">About us</a></li>
-									<li><a href="{{route('client.contact')}}">Contact</a></li>
+									<li><a href="contact.html">Contact</a></li>
 								</ul>
 							</div>
 						</div>
@@ -182,77 +182,92 @@
 		<!-- header-end -->
 
 
-    <!-- .breadcumb-area start -->
-    <div class="bradcumb-area black-opacity bg-img-1">
-        <div class="container">
-            <div class="row">
-                <div class="col-xs-12">
-                    <div class="bradcumb-wrap">
-                        <h2>@yield('page')</h2>
-                        <ul>
-                            <li><a href="index.html">Home</a></li>
-                            <li>|</li>
-                            <li><a href="shop-2.html">Shop</a></li>
-                            <li>|</li>
-                            <li>@yield('page')</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- .breadcumb-area end -->
-
-   	<!-- blog-area start -->
-		<div class="blog-area ptb-100 blog-area2">
+    <!-- breadcumb-area start -->
+		<div class="bradcumb-area black-opacity bg-img-3">
 			<div class="container">
 				<div class="row">
-                    @foreach($blogs as $value)
-                    {{-- @dd($value->adminName) --}}
-					<div class="col-md-4 col-sm-6 col-xs-12">
-						<div class="blog-wrap mb-30">
-							<div class="blog-img">
-								<img src="img/blog/1.jpg" alt="" />
-								<div class="deat">
-									<ul>
-										<li>{{$value->created_at}}</li>
-									</ul>
+					<div class="col-xs-12">
+						<div class="bradcumb-wrap">
+							<h2>@yield('page')</h2>
+							<ul>
+								<li><a href="index.html">Home</a></li>
+								<li>|</li>
+								<li><a href="shop-2.html">Shop</a></li>
+								<li>|</li>
+								<li>@yield('page')</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- breadcumb-area end -->
+
+		<!-- checkout-area start -->
+		<div class="checkout-area ptb-100 bg-4">
+			<div class="container">
+				<div class="row">
+					<div class="col-xs-12">
+						<h3 class="cart-title">CheckOut</h3>
+					</div>
+				</div>
+                <form action="{{route('client.order')}}" method="POST">
+                    @csrf
+                    <div class="row">
+					<div class="col-md-6">
+                        <div class="checkout-form-wrap mb-20">
+                            <h3 class="checkout-title">Billing Information</h3>
+							<div class="checkout-form">
+                                <div class="row">
+									<div class="col-md-6">
+                                        <p>Cnee<span>*</span></p>
+										<input type="text" name="name" placeholder="Your name..." value="{{$client->name}}"/>
+									</div>
+									<div class="col-md-6">
+                                        <p>Email<span>*</span></p>
+										<input type="text" name="email" placeholder="Your email..." value="{{$client->email}}"/>
+									</div>
+									<div class="col-md-6">
+                                        <p>Phone <span>*</span></p>
+										<input type="text" name="phone" placeholder="Your phone..." value="{{$client->phone}}"/>
+									</div>
+									<div class="col-xs-12">
+                                        <p>Address <span>*</span></p>
+										<input type="text" name="address" placeholder="Street address..." value="{{$client->address}}"/>
+									</div>
+                                    <div class="col-xs-12">
+                                        <button type="submit" class="btn btn-success">Buy</button>
+                                    </div>
 								</div>
-							</div>
-							<div class="blog-content">
-								<div class="blog-meta">
-									<ul>
-										<li><a href="#"><i class="fa fa-user"></i> {{$value->adminName}}</a></li>
-									</ul>
-								</div>
-								<h3>{{$value->name}}</h3>
-								<p>{{$value->title}}</p>
-								<a class="readmore" href="{{route('blog.detail',$value->id)}}">Read More</a>
 							</div>
 						</div>
 					</div>
-                    @endforeach
+                </form>
+					<div class="col-md-6">
+						<div class="checkout-form-wrap mb-20">
+							<h3 class="checkout-title">Your Order</h3>
+							<div class="checkout-form">
+								<div class="row">
+									<div class="col-xs-12">
+										<ul>
+                                            <li><b>Product</b><strong>Total</strong></li>
+                                            @if (isset($cart))
+                                        @foreach ($cart as $item)
+                                        <li>Name: {{$item['name'] . ' x ' .$item['quantity']}} <strong>{{number_format($item['price'])}} VND</strong></li>
+                                        @endforeach
+                                        @endif
+                                        <li>Total Price : <strong>{{number_format($cartHelper->total_price)}} VND</strong></li>
+                                        <li>Tax: <strong>{{$cartHelper->tax}}%</strong></li>
+                                        <li>Payment: <strong>{{number_format($cartHelper->into_money)}} VND</strong>
+										</ul>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
 				</div>
-				@if($blog->hasPages())
-                <div class="row">
-                    <div class="col-xs-12">
-                        <div class="pagination-wrap">
-                            <ul>
-                                @if ($products->currentPage() - 1 > 0)
-                                <li><a href="{{ $products->previousPageUrl() }}"><i class="fa fa-angle-left"></i></a></li>
-                                @endif
-                                @for ($i = 1; $i <= $products->lastPage(); $i++)
-                                <li class="{{ $products->currentPage() == $i ? 'active' : '' }}"><a href="{{ $products->url($i) }}">{{ $i }}</a></li>
-                                @endfor
-                                @if ($products->currentPage() < $products->lastPage())
-                                <li><a href="{{ $products->nextPageUrl() }}"><i class="fa fa-angle-right"></i></a></li>
-                                @endif
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                @endif
 			</div>
 		</div>
-		<!-- blog-area end -->
+		<!-- checkout-area end -->
+
    @include('clients.components.footer')

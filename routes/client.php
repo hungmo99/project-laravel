@@ -95,4 +95,46 @@ Route::prefix('client')->group(function(){
             'uses'=>'clients\WishlistController@delete'
         ]);
     });
+    Route::prefix('cart')->group(function(){
+        Route::get('',[
+            'as'=>'cart.index',
+            'uses'=>'clients\CartController@index'
+        ]);
+        Route::get('add-cart/{id}.html',[
+            'as'=>'cart.add',
+            'uses'=>'clients\CartController@addCart'
+        ]);
+        Route::post('update-quantity',[
+            'as'=>'cart.update-qty',
+            'uses'=>'clients\CartController@updateQty'
+        ]);
+        Route::get('update-cart',[
+            'as'=>'cart.update',
+            'uses'=>'clients\CartController@updateCart'
+        ]);
+        Route::get('remove-cart',[
+            'as'=>'cart.remove',
+            'uses'=>'clients\CartController@removeCart'
+        ]);
+        Route::get('destroy-cart',[
+            'as'=>'cart.destroy',
+            'uses'=>'clients\CartController@destroyCart'
+        ]);
+    });
+    Route::get('checkout',[
+        'as'=>'client.checkout',
+        'uses'=>'clients\CheckoutController@index'
+    ]);
+    Route::post('order',[
+        'as'=>'client.order',
+        'uses'=>'clients\CheckoutController@order'
+    ]);
+    Route::get('view-order',[
+        'as'=>'order.view',
+        'uses'=>'clients\CheckoutController@view'
+    ]);
+    Route::get('order-detail/{id}',[
+        'as'=>'order.detail',
+        'uses'=>'clients\ClientController@order_detail'
+    ]);
 });

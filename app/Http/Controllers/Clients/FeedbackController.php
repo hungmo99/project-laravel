@@ -9,7 +9,7 @@ use Illuminate\Http\Request;
 class FeedbackController extends Controller
 {
     public function index(Request $request,$id){
-        $client = session()->get('client');
+        $client = session()->get('customer');
         $demo = 'feedback';
         if($client){
             feedback_pro::create([
@@ -19,7 +19,7 @@ class FeedbackController extends Controller
             ]);
             return redirect()->back()->with('message','ok');
         }else{
-            return view('client.content.login',compact('demo'));
+            return view('clients.pages.login',compact('demo'));
         }
     }
 }

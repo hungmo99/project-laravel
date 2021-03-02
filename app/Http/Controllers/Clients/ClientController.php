@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Clients;
 
 use App\Http\Controllers\Controller;
 use App\Models\attr;
+use App\Models\order_detail;
 use App\Models\product;
 use App\Models\User;
 use App\Models\Wishlist;
@@ -145,5 +146,10 @@ class ClientController extends Controller
     public function logout(){
         session()->pull('customer');
         return redirect()->back();
+    }
+    public function order_detail($id){
+        $order = order_detail::get_order_detail($id);
+        // dd($order);
+        return view('clients.pages.order-details',compact('order'));
     }
 }
